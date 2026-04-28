@@ -2,74 +2,74 @@
 <html>
 <head>
     <title>Demand Forecasting App</title>
-    <style>
-        body { font-family: Arial; padding: 40px; }
-        input, select { margin: 5px; padding: 8px; }
-        button { padding: 10px; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<h2>Demand Forecasting</h2>
+<div class="container">
+    <h2>Demand Forecasting</h2>
 
-<form action="/predict" method="post">
-    <label>Date:</label>
-    <input type="date" name="date" required><br>
+    <form action="/predict" method="post">
+        <label>Date:</label>
+        <input type="date" name="date" required>
 
-    <label>Price:</label>
-    <input type="number" step="any" name="price"><br>
+        <label>Price:</label>
+        <input type="number" step="any" name="price">
 
-    <label>Inventory Level:</label>
-    <input type="number" name="inventory"><br>
+        <label>Inventory Level:</label>
+        <input type="number" name="inventory">
 
-    <label>Discount:</label>
-    <input type="number" name="discount"><br>
+        <label>Discount:</label>
+        <input type="number" name="discount">
 
-    <label>Store:</label>
-    <select name="store">
-        <option>S001</option>
-        <option>S002</option>
-    </select><br>
+        <label>Store:</label>
+        <select name="store">
+            <option>S001</option>
+            <option>S002</option>
+        </select>
 
-    <label>Product:</label>
-    <select name="product">
-        <option>P0001</option>
-        <option>P0002</option>
-    </select><br>
+        <label>Product:</label>
+        <select name="product">
+            <option>P0001</option>
+            <option>P0002</option>
+        </select>
 
-    <label>Category:</label>
-    <select name="category">
-        <option>Electronics</option>
-        <option>Clothing</option>
-        <option>Groceries</option>
-    </select><br>
+        <label>Category:</label>
+        <select name="category">
+            <option>Electronics</option>
+            <option>Clothing</option>
+            <option>Groceries</option>
+        </select>
 
-    <label>Region:</label>
-    <select name="region">
-        <option>North</option>
-        <option>South</option>
-    </select><br>
+        <label>Region:</label>
+        <select name="region">
+            <option>North</option>
+            <option>South</option>
+        </select>
 
-    <label>Weather:</label>
-    <select name="weather">
-        <option>Sunny</option>
-        <option>Rainy</option>
-        <option>Snowy</option>
-        <option>Cloudy</option>
-    </select><br>
+        <label>Weather:</label>
+        <select name="weather">
+            <option>Sunny</option>
+            <option>Rainy</option>
+            <option>Snowy</option>
+            <option>Cloudy</option>
+        </select>
 
-    <label>Season:</label>
-    <select name="season">
-        <option>Winter</option>
-        <option>Summer</option>
-    </select><br>
+        <label>Season:</label>
+        <select name="season">
+            <option>Winter</option>
+            <option>Summer</option>
+        </select>
 
-    <button type="submit">Predict</button>
-</form>
+        <button type="submit">Predict</button>
+    </form>
 
-{% if prediction %}
-    <h3>Predicted Units Sold: {{ prediction }}</h3>
-{% endif %}
+    {% if prediction %}
+        <div class="result">
+            Predicted Units Sold: {{ prediction }}
+        </div>
+    {% endif %}
+</div>
 
 </body>
 </html>
